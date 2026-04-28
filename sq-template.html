@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SQ Models Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body {
+    background: #f8f9fa;
+}
+.table-container {
+    overflow-x: auto;
+}
+th {
+    white-space: nowrap;
+}
+.small-text {
+    font-size: 0.85rem;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container-fluid p-4">
+
+<h3 class="mb-4">Sustainability-Quality (SQ) Models</h3>
+
+<!-- Tabs -->
+<ul class="nav nav-tabs" id="sqTabs" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="slr-tab" data-bs-toggle="tab" data-bs-target="#slr" type="button">
+      SLR SQ-Model
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="se-tab" data-bs-toggle="tab" data-bs-target="#se" type="button">
+      Software Engineering SQ-Model
+    </button>
+  </li>
+</ul>
+
+<div class="tab-content mt-3">
+
+<!-- ===================== SLR TAB ===================== -->
+<div class="tab-pane fade show active" id="slr">
+
+<div class="table-container">
+<table class="table table-bordered table-sm table-striped">
+<thead class="table-dark">
+<tr>
+<th>Ch</th>
+<th>ID</th>
+<th>Sub-Characteristic</th>
+<th>Definition</th>
+<th>Dim.</th>
+</tr>
+</thead>
+<tbody>
+
+<!-- Transparency -->
+<tr><td rowspan="3">Transparency</td><td rowspan="2">A1</td><td rowspan="2">Availability (AV)</td>
+<td>SLR documentation and associated data are accessible</td><td>T</td></tr>
+<tr><td>Users need monetary resources to access SLR contents (e.g., paywalls)</td><td>E</td></tr>
+
+<tr><td>A2</td><td>Auditability (AU)</td>
+<td>Enables verification of evidence chain from sources to synthesis</td><td>T</td></tr>
+
+<!-- Reliability -->
+<tr><td rowspan="2">Reliability</td><td>A3</td><td>Trustability</td>
+<td>Readers trust correctness of SLR results</td><td>S</td></tr>
+
+<tr><td>A4</td><td>Risk Mitigation Level</td>
+<td>Mitigation of validity threats</td><td>T</td></tr>
+
+<!-- Applicability -->
+<tr><td rowspan="2">Applicability</td><td>A5</td><td>Usefulness</td>
+<td>Perceived usefulness for decision-making</td><td>S</td></tr>
+
+<tr><td>A6</td><td>Research Impact</td>
+<td>Impact of SLR results on research area</td><td>T</td></tr>
+
+<!-- Maintainability -->
+<tr><td rowspan="2">Maintainability</td><td rowspan="2">A6</td><td>Modifiability</td>
+<td>Ability to modify SLR components (protocol, logs, results)</td><td>T</td></tr>
+
+<tr><td>Modifiability effort</td>
+<td>Resources needed to modify SLR outputs</td><td>E</td></tr>
+
+<!-- Usability -->
+<tr><td rowspan="2">Usability</td><td>A7</td><td>Learnability</td>
+<td>Degree to which results are understood</td><td>S</td></tr>
+
+<tr><td>A8</td><td>Appropriateness</td>
+<td>Recognition that SLR answers user questions</td><td>S</td></tr>
+
+<!-- Flexibility -->
+<tr><td rowspan="2">Flexibility</td><td>A10</td><td>Adaptability</td>
+<td>Adaptation of SLR to different research contexts</td><td>T</td></tr>
+
+<tr><td>A11</td><td>Replaceability</td>
+<td>Replication or extension by other studies</td><td>E</td></tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+<!-- ===================== SOFTWARE ENGINEERING TAB ===================== -->
+<div class="tab-pane fade" id="se">
+
+<div class="table-container">
+<table class="table table-bordered table-sm table-striped">
+
+<thead class="table-dark">
+<tr>
+<th>Category</th>
+<th>Sub-Characteristic</th>
+<th>Definition</th>
+<th>Reference</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr><td>Compatibility</td><td>Co-existence</td>
+<td>Degree to which a product can operate efficiently in shared environments without negative impact</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Compatibility</td><td>Interoperability</td>
+<td>Ability to exchange and use information with other systems</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Context Coverage</td><td>Context Completeness</td>
+<td>System usability across all specified contexts of use</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Context Coverage</td><td>Flexibility</td>
+<td>Use beyond initially specified requirements</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Effectiveness</td><td>Effectiveness</td>
+<td>Accuracy and completeness in achieving goals</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Efficiency</td><td>Efficiency</td>
+<td>Resource usage relative to achieved accuracy and completeness</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Freedom from Risk</td><td>Economic Risk Mitigation</td>
+<td>Reduction of financial risk</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Freedom from Risk</td><td>Environmental Risk Mitigation</td>
+<td>Reduction of environmental/property risk</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Freedom from Risk</td><td>Health & Safety Risk Mitigation</td>
+<td>Reduction of risks to people</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Functional Suitability</td><td>Functional Appropriateness</td>
+<td>Functions support task completion</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Functional Suitability</td><td>Functional Correctness</td>
+<td>Correct results with required precision</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Functional Suitability</td><td>Functional Completeness</td>
+<td>Coverage of all required tasks</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Maintainability</td><td>Modifiability</td>
+<td>Ease of modification without quality degradation</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Maintainability</td><td>Modularity</td>
+<td>Minimal impact between components</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Maintainability</td><td>Reusability</td>
+<td>Asset reuse in multiple systems</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Maintainability</td><td>Testability</td>
+<td>Ease of establishing test criteria</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Performance Efficiency</td><td>Capacity</td>
+<td>Maximum system limits meet requirements</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Performance Efficiency</td><td>Resource Utilization</td>
+<td>Efficient resource usage</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Performance Efficiency</td><td>Time Behaviour</td>
+<td>Response and throughput meet requirements</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Portability</td><td>Adaptability</td>
+<td>Adaptation to different environments</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Portability</td><td>Replaceability</td>
+<td>Replacement by another system</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Reliability</td><td>Availability</td>
+<td>System is operational when required</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Reliability</td><td>Fault Tolerance</td>
+<td>Operation despite faults</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Reliability</td><td>Maturity</td>
+<td>Reliability under normal operation</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Reliability</td><td>Recoverability</td>
+<td>Recovery after failure</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Security</td><td>Integrity</td>
+<td>Protection against unauthorized modification</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Security</td><td>Confidentiality</td>
+<td>Access restricted to authorized users</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Security</td><td>Authenticity</td>
+<td>Verification of identity</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Security</td><td>Accountability</td>
+<td>Traceability of actions</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Usability</td><td>Learnability</td>
+<td>Ease of learning system usage</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Usability</td><td>Operability</td>
+<td>Ease of operation and control</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Usability</td><td>User Error Protection</td>
+<td>Protection against user mistakes</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Accessibility</td><td>Accessibility</td>
+<td>Usable by diverse users</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+<tr><td>Robustness</td><td>Robustness</td>
+<td>Behavior under unexpected situations</td>
+<td>S-Cube (2012)</td></tr>
+
+<tr><td>Survivability</td><td>Survivability</td>
+<td>Continued service under attacks or failures</td>
+<td>ISO/IEC 25010:2011</td></tr>
+
+</tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

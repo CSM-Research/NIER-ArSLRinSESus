@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MM4SLR - Key Practices Explorer</title>
+  <title>SLR Key Practices Explorer</title>
 
   <!-- Bootstrap -->
   <link
@@ -64,6 +64,7 @@
       border-left: 4px solid #0d6efd;
       padding-left: 1rem;
       margin-top: 0.8rem;
+      white-space: pre-line;
     }
 
     .instance-item {
@@ -91,16 +92,38 @@
       padding: 1rem;
       border-radius: 12px;
     }
+
+    .bibtex-box {
+      background: #212529;
+      color: #f8f9fa;
+      padding: 1rem;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      white-space: pre-wrap;
+      margin-top: 1rem;
+    }
+
+    .toggle-btn {
+      margin-top: 1rem;
+    }
+
+    .reference-meta {
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 <body>
 
   <div class="hero text-center">
     <div class="container">
-      <h1 class="fw-bold">MM4SLR - Key Practices Explorer</h1>
+
+      <h1 class="fw-bold">
+        Key Practices Explorer
+      </h1>
 
       <p class="lead">
-        Interactive visualization of key practices and their supporting evidence.
+        Explore the practices identified in our Systematic Literature Review on Software Engineering for Sustainability. Click "View Evidence" to see the supporting studies and references for each practice.
       </p>
 
       <div class="search-box mt-4">
@@ -111,15 +134,18 @@
           placeholder="Search key practices..."
         />
       </div>
+
     </div>
   </div>
 
   <div class="container pb-5">
+
     <div id="content">
       <div class="loading">
-        Loading data.json...
+        Loading data.json and studies.bib...
       </div>
     </div>
+
   </div>
 
   <!-- Modal -->
@@ -128,6 +154,7 @@
       <div class="modal-content">
 
         <div class="modal-header">
+
           <h5 class="modal-title" id="modalTitle">
             Evidence & References
           </h5>
@@ -137,6 +164,7 @@
             class="btn-close"
             data-bs-dismiss="modal">
           </button>
+
         </div>
 
         <div class="modal-body" id="modalBody"></div>
@@ -148,24 +176,34 @@
   <script>
 
     let data = null;
+    let bibDatabase = {};
 
     // =========================================
-    // LOAD JSON
+    // LOAD FILES
     // =========================================
 
-    async function loadData() {
+    async function loadFiles() {
 
       try {
 
-        const response = await fetch('./data.json');
+        const [jsonResponse, bibResponse] = await Promise.all([
+          fetch('./data.json'),
+          fetch('./studies.bib')
+        ]);
 
-        if (!response.ok) {
-          throw new Error(
-            `Could not load data.json (${response.status})`
-          );
+        if (!jsonResponse.ok) {
+          throw new Error('Could not load data.json');
         }
 
-        data = await response.json();
+        if (!bibResponse.ok) {
+          throw new Error('Could not load studies.bib');
+        }
+
+        data = await jsonResponse.json();
+
+        const bibText = await bibResponse.text();
+
+        bibDatabase = parseBibtex(bibText);
 
         renderPractices();
 
@@ -175,18 +213,59 @@
 
         document.getElementById("content").innerHTML = `
           <div class="error-box">
-            <h5>Unable to load data.json</h5>
 
-            <p class="mb-0">
-              Make sure the file exists in the same directory as this HTML page.
+            <h5>Unable to load required files</h5>
+
+            <p>
+              Ensure these files exist in the same directory:
             </p>
 
-            <hr>
+            <ul>
+              <li>data.json</li>
+              <li>studies.bib</li>
+            </ul>
 
             <small>${error.message}</small>
+
           </div>
         `;
       }
+    }
+
+    // =========================================
+    // SIMPLE BIBTEX PARSER
+    // =========================================
+
+    function parseBibtex(bibText) {
+
+      const entries = {};
+
+      const rawEntries = bibText.split('@').slice(1);
+
+      rawEntries.forEach(raw => {
+
+        const firstBrace = raw.indexOf('{');
+
+        if (firstBrace === -1) return;
+
+        const type = raw.substring(0, firstBrace).trim();
+
+        const content = raw.substring(firstBrace + 1);
+
+        const firstComma = content.indexOf(',');
+
+        if (firstComma === -1) return;
+
+        const key = content.substring(0, firstComma).trim();
+
+        entries[key] = {
+          type,
+          raw: '@' + raw.trim()
+        };
+
+      });
+
+      return entries;
     }
 
     // =========================================
@@ -200,11 +279,13 @@
       content.innerHTML = "";
 
       if (!data || !data.Dimensions) {
+
         content.innerHTML = `
           <div class="error-box">
-            Invalid JSON structure.
+            Invalid data.json structure.
           </div>
         `;
+
         return;
       }
 
@@ -305,6 +386,66 @@
     }
 
     // =========================================
+    // BUILD REFERENCE HTML
+    // =========================================
+
+    function buildReferenceCard(ref, uniqueId) {
+
+      const bibKey = ref.study_bibtex_key;
+
+      const bibEntry = bibDatabase[bibKey];
+
+      return `
+        <div class="reference-card">
+
+          <h6 class="fw-bold mb-1">
+            ${ref.study_title || 'Untitled'}
+          </h6>
+
+          <div class="text-muted reference-meta mb-2">
+            ${ref.study_authors || 'Unknown authors'}
+            ${bibKey ? `• ${bibKey}` : ''}
+          </div>
+
+          <div class="quote">
+            "${ref.text || 'No excerpt available'}"
+          </div>
+
+          ${
+            bibEntry
+              ? `
+                <button
+                  class="btn btn-sm btn-dark toggle-btn"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#bibtex-${uniqueId}">
+
+                  Show BibTeX Reference
+
+                </button>
+
+                <div
+                  class="collapse"
+                  id="bibtex-${uniqueId}">
+
+                  <div class="bibtex-box">
+${escapeHtml(bibEntry.raw)}
+                  </div>
+
+                </div>
+              `
+              : `
+                <div class="alert alert-warning mt-3 mb-0">
+                  Reference not found in studies.bib
+                </div>
+              `
+          }
+
+        </div>
+      `;
+    }
+
+    // =========================================
     // OPEN MODAL
     // =========================================
 
@@ -334,6 +475,8 @@
 
       let html = "";
 
+      let counter = 0;
+
       // -----------------------------------------
       // DIRECT REFERENCES
       // -----------------------------------------
@@ -351,24 +494,12 @@
 
         selectedPractice.textPassages.forEach(ref => {
 
-          html += `
-            <div class="reference-card">
+          counter++;
 
-              <h6 class="fw-bold mb-1">
-                ${ref.study_title}
-              </h6>
-
-              <div class="text-muted small mb-2">
-                ${ref.study_authors}
-                • ${ref.study_bibtex_key}
-              </div>
-
-              <div class="quote">
-                "${ref.text}"
-              </div>
-
-            </div>
-          `;
+          html += buildReferenceCard(
+            ref,
+            `ref-${counter}`
+          );
         });
       }
 
@@ -404,24 +535,13 @@
 
             instance.textPassages.forEach(ref => {
 
-              html += `
-                <div class="reference-card mt-3">
+              counter++;
 
-                  <h6 class="fw-bold mb-1">
-                    ${ref.study_title}
-                  </h6>
+              html += buildReferenceCard(
+                ref,
+                `instance-${counter}`
+              );
 
-                  <div class="text-muted small mb-2">
-                    ${ref.study_authors}
-                    • ${ref.study_bibtex_key}
-                  </div>
-
-                  <div class="quote">
-                    "${ref.text}"
-                  </div>
-
-                </div>
-              `;
             });
 
           } else {
@@ -456,6 +576,19 @@
     }
 
     // =========================================
+    // ESCAPE HTML
+    // =========================================
+
+    function escapeHtml(text) {
+
+      const div = document.createElement('div');
+
+      div.innerText = text;
+
+      return div.innerHTML;
+    }
+
+    // =========================================
     // SEARCH
     // =========================================
 
@@ -469,7 +602,7 @@
     // START
     // =========================================
 
-    loadData();
+    loadFiles();
 
   </script>
 

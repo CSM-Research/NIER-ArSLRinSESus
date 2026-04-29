@@ -50,63 +50,143 @@ th {
 <div class="tab-pane fade show active" id="slr">
 
 <div class="table-container">
-<table class="table table-bordered table-sm table-striped">
-<thead class="table-dark">
-<tr>
-<th>Ch</th>
-<th>ID</th>
-<th>Sub-Characteristic</th>
-<th>Definition</th>
-<th>Dim.</th>
-</tr>
-</thead>
-<tbody>
+  <table class="table table-bordered table-sm table-striped align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th>Ch</th>
+        <th>ID</th>
+        <th>Sub-Ch</th>
+        <th>Definition</th>
+        <th>Dimension</th>
+      </tr>
+    </thead>
 
-<!-- Transparency -->
-<tr><td rowspan="3">Transparency</td><td rowspan="2">A1</td><td rowspan="2">Availability (AV)</td>
-<td>SLR documentation and associated data are accessible</td><td>T</td></tr>
-<tr><td>Users need monetary resources to access SLR contents (e.g., paywalls)</td><td>E</td></tr>
+    <tbody>
 
-<tr><td>A2</td><td>Auditability (AU)</td>
-<td>Enables verification of evidence chain from sources to synthesis</td><td>T</td></tr>
+      <!-- Transparency -->
+      <tr>
+        <td rowspan="3">Transparency</td>
+        <td rowspan="2">A1</td>
+        <td rowspan="2">Availability</td>
+        <td>Degree to which SLR documentation and associated data are accessible</td>
+        <td>Technical</td>
+      </tr>
 
-<!-- Reliability -->
-<tr><td rowspan="2">Reliability</td><td>A3</td><td>Trustability</td>
-<td>Readers trust correctness of SLR results</td><td>S</td></tr>
+      <tr>
+        <td>Degree to which users need to invest monetary values to have access to SLR contents (e.g., paywalls, licensing costs)</td>
+        <td>Economic</td>
+      </tr>
 
-<tr><td>A4</td><td>Risk Mitigation Level</td>
-<td>Mitigation of validity threats</td><td>T</td></tr>
+      <tr>
+        <td>A2</td>
+        <td>Auditability</td>
+        <td>Degree to which the report enables verification of the chain of evidence (from sources to synthesis)</td>
+        <td>Technical</td>
+      </tr>
 
-<!-- Applicability -->
-<tr><td rowspan="2">Applicability</td><td>A5</td><td>Usefulness</td>
-<td>Perceived usefulness for decision-making</td><td>S</td></tr>
+      <!-- Reliability -->
+      <tr>
+        <td rowspan="2">Reliability</td>
+        <td>A3</td>
+        <td>Trustability</td>
+        <td>Degree to which readers trust that SLR results are correct</td>
+        <td>Social</td>
+      </tr>
 
-<tr><td>A6</td><td>Research Impact</td>
-<td>Impact of SLR results on research area</td><td>T</td></tr>
+      <tr>
+        <td>A4</td>
+        <td>Risk Mitigation Level</td>
+        <td>Degree to which potential threats to validity are mitigated</td>
+        <td>Technical</td>
+      </tr>
 
-<!-- Maintainability -->
-<tr><td rowspan="2">Maintainability</td><td rowspan="2">A6</td><td>Modifiability</td>
-<td>Ability to modify SLR components (protocol, logs, results)</td><td>T</td></tr>
+      <!-- Applicability -->
+      <tr>
+        <td rowspan="2">Applicability</td>
+        <td>A5</td>
+        <td>Usefulness</td>
+        <td>Degree to which the target audience perceives the results as useful for decision-making</td>
+        <td>Social</td>
+      </tr>
 
-<tr><td>Modifiability effort</td>
-<td>Resources needed to modify SLR outputs</td><td>E</td></tr>
+      <tr>
+        <td>A6</td>
+        <td>Research Impact</td>
+        <td>Degree to which SLR results resonate/impact the research area</td>
+        <td>Technical</td>
+      </tr>
 
-<!-- Usability -->
-<tr><td rowspan="2">Usability</td><td>A7</td><td>Learnability</td>
-<td>Degree to which results are understood</td><td>S</td></tr>
+      <!-- Maintainability -->
+      <tr>
+        <td rowspan="2">Maintainability</td>
+        <td rowspan="2">A6</td>
+        <td rowspan="2">Modifiability</td>
+        <td>Degree to which SLR components (documentation, protocol, logs, results) enable modification</td>
+        <td>Technical</td>
+      </tr>
 
-<tr><td>A8</td><td>Appropriateness</td>
-<td>Recognition that SLR answers user questions</td><td>S</td></tr>
+      <tr>
+        <td>Degree to which resources are needed to modify an SLR (data and final report)</td>
+        <td>Economic</td>
+      </tr>
 
-<!-- Flexibility -->
-<tr><td rowspan="2">Flexibility</td><td>A10</td><td>Adaptability</td>
-<td>Adaptation of SLR to different research contexts</td><td>T</td></tr>
+      <!-- Usability -->
+      <tr>
+        <td rowspan="2">Usability</td>
+        <td>A7</td>
+        <td>Learnability</td>
+        <td>Degree to which SLR results are understood by the target audience</td>
+        <td>Social</td>
+      </tr>
 
-<tr><td>A11</td><td>Replaceability</td>
-<td>Replication or extension by other studies</td><td>E</td></tr>
+      <tr>
+        <td>A8</td>
+        <td>Appropriateness</td>
+        <td>Degree to which the audience recognizes that SLR answers their questions</td>
+        <td>Social</td>
+      </tr>
 
-</tbody>
-</table>
+      <!-- Flexibility -->
+      <tr>
+        <td rowspan="3">Flexibility</td>
+        <td>A10</td>
+        <td>Adaptability</td>
+        <td>Degree to which an SLR can be adapted to different research contexts</td>
+        <td>Technical</td>
+      </tr>
+
+      <tr>
+        <td>A11</td>
+        <td>Replicability</td>
+        <td>Degree to which an SLR can be replicated or extended by another study in the same context</td>
+        <td>Technical</td>
+      </tr>
+
+      <tr>
+        <td>A12</td>
+        <td>Extensibility</td>
+        <td>Degree to which an SLR can be extended in terms of coverage or domain</td>
+        <td> Technical </td>
+      </tr>
+
+       <tr>
+        <td rowspan="2">Efficiency</td>
+        <td>A13</td>
+        <td>Efficiency</td>
+        <td>Degree to which resources expended in relation to the accuracy and completeness with which SLR achieve goals</td>
+        <td>Economic</td>
+      </tr>
+
+      
+    </tbody>
+  </table>
+
+  <div class="mt-2">
+    <strong>Legend:</strong>
+    Technical = Technical Sustainability Dimension,
+    Economic = Economic Sustainability Dimension,
+    Social = Social Sustainability Dimension
+  </div>
 </div>
 
 </div>
@@ -115,161 +195,513 @@ th {
 <div class="tab-pane fade" id="se">
 
 <div class="table-container">
-<table class="table table-bordered table-sm table-striped">
+  <table class="table table-bordered table-sm table-striped align-middle">
+    
+    <thead class="table-dark">
+      <tr>
+        <th>Category</th>
+        <th>Sub-Characteristic</th>
+        <th>Definition</th>
+        <th>Reference</th>
+        <th>Technical</th>
+        <th>Environmental</th>
+        <th>Economic</th>
+        <th>Social</th>
+      </tr>
+    </thead>
 
-<thead class="table-dark">
-<tr>
-<th>Category</th>
-<th>Sub-Characteristic</th>
-<th>Definition</th>
-<th>Reference</th>
-</tr>
-</thead>
+    <tbody>
 
-<tbody>
+      <!-- COMPATIBILITY -->
+      <tr>
+        <td rowspan="2">Compatibility</td>
+        <td>Co-existence</td>
+        <td>
+          degree to which a product can perform its required functions efficiently while sharing a common environment and resources with other products, without detrimental impact on any other product
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
 
-<tr><td>Compatibility</td><td>Co-existence</td>
-<td>Degree to which a product can operate efficiently in shared environments without negative impact</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Interoperability</td>
+        <td>
+          degree to which a system can exchange information with other systems and use the information
+        </td>
+        <td>simplified from [ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Compatibility</td><td>Interoperability</td>
-<td>Ability to exchange and use information with other systems</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <!-- CONTEXT COVERAGE -->
+      <tr>
+        <td rowspan="2">Context Coverage</td>
+        <td>Context completeness</td>
+        <td>
+          degree to which a system can be used in all the specified contexts of use
+        </td>
+        <td>simplified from [ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Context Coverage</td><td>Context Completeness</td>
-<td>System usability across all specified contexts of use</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Flexibility</td>
+        <td>
+          degree to which a system can be used in contexts beyond those initially specified in the requirements.
+        </td>
+        <td>simplified from [ISO/IEC 25010:2011]</td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+        <td></td>
+      </tr>
 
-<tr><td>Context Coverage</td><td>Flexibility</td>
-<td>Use beyond initially specified requirements</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <!-- EFFECTIVENESS -->
+      <tr>
+        <td>Effectiveness</td>
+        <td>Effectiveness</td>
+        <td>
+          accuracy and completeness with which users achieve specified goals
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Effectiveness</td><td>Effectiveness</td>
-<td>Accuracy and completeness in achieving goals</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <!-- EFFICIENCY -->
+      <tr>
+        <td>Efficiency</td>
+        <td>Efficiency</td>
+        <td>
+          resources expended in relation to the accuracy and completeness with which users achieve goals
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td>X</td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Efficiency</td><td>Efficiency</td>
-<td>Resource usage relative to achieved accuracy and completeness</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <!-- FREEDOM FROM RISK -->
+      <tr>
+        <td rowspan="3">Freedom from Risk</td>
+        <td>Economic risk mitigation</td>
+        <td>
+          degree to which a system mitigates the potential risk to financial status in the intended contexts of use
+        </td>
+        <td>simplified from [ISO/IEC 25010:2011]</td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+        <td></td>
+      </tr>
 
-<tr><td>Freedom from Risk</td><td>Economic Risk Mitigation</td>
-<td>Reduction of financial risk</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Environmental risk mitigation</td>
+        <td>
+          degree to which a system mitigates the potential risk to property or the environment in the intended contexts of use
+        </td>
+        <td>simplified from [ISO/IEC 25010:2011]</td>
+        <td></td>
+        <td>X</td>
+        <td></td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Freedom from Risk</td><td>Environmental Risk Mitigation</td>
-<td>Reduction of environmental/property risk</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Health and safety risk mitigation</td>
+        <td>
+          degree to which a system mitigates the potential risk to people in the intended contexts of use
+        </td>
+        <td>simplified from [ISO/IEC 25010:2011]</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Freedom from Risk</td><td>Health & Safety Risk Mitigation</td>
-<td>Reduction of risks to people</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <!-- FUNCTIONAL SUITABILITY -->
+      <tr>
+        <td rowspan="3">Functional Suitability</td>
+        <td>Functional appropriateness</td>
+        <td>
+          degree to which the functions facilitate the accomplishment of specified tasks and objectives
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Functional Suitability</td><td>Functional Appropriateness</td>
-<td>Functions support task completion</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Functional correctness</td>
+        <td>
+          degree to which a system provides the correct results with the needed degree of precision
+        </td>
+        <td>simplified from [ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Functional Suitability</td><td>Functional Correctness</td>
-<td>Correct results with required precision</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Functional completeness</td>
+        <td>
+          degree to which the set of functions covers all the specified tasks and user objectives.
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+        <td></td>
+      </tr>
 
-<tr><td>Functional Suitability</td><td>Functional Completeness</td>
-<td>Coverage of all required tasks</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <!-- MAINTAINABILITY -->
+      <tr>
+        <td rowspan="4">Maintainability</td>
+        <td>Modifiability</td>
+        <td>
+          degree to which a system can be effectively and efficiently modified without introducing defects or degrading existing product quality
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td>X</td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Maintainability</td><td>Modifiability</td>
-<td>Ease of modification without quality degradation</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Modularity</td>
+        <td>
+          degree to which a system is composed of components such that a change to one component has minimal impact on other components
+        </td>
+        <td>simplified from [ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
 
-<tr><td>Maintainability</td><td>Modularity</td>
-<td>Minimal impact between components</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Reusability</td>
+        <td>
+          degree to which an asset can be used in more than one system, or in building other assets
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+        <td></td>
+      </tr>
 
-<tr><td>Maintainability</td><td>Reusability</td>
-<td>Asset reuse in multiple systems</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Testability</td>
+        <td>
+          degree of effectiveness and efficiency with which test criteria can be established for a system
+        </td>
+        <td>simplified from [ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
 
-<tr><td>Maintainability</td><td>Testability</td>
-<td>Ease of establishing test criteria</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <!-- PERFORMANCE EFFICIENCY -->
+      <tr>
+        <td rowspan="3">Performance Efficiency</td>
+        <td>Capacity</td>
+        <td>
+          degree to which the maximum limits of a product or system parameter meet requirements
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
 
-<tr><td>Performance Efficiency</td><td>Capacity</td>
-<td>Maximum system limits meet requirements</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Resource utilization</td>
+        <td>
+          degree to which the amounts and types of resources used by a system, when performing its functions, meet requirements
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td></td>
+        <td>X</td>
+        <td></td>
+        <td></td>
+      </tr>
 
-<tr><td>Performance Efficiency</td><td>Resource Utilization</td>
-<td>Efficient resource usage</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Time behaviour</td>
+        <td>
+          degree to which the response, processing times and throughput rates of a system, when performing its functions, meet requirements
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td>X</td>
+        <td></td>
+      </tr>
 
-<tr><td>Performance Efficiency</td><td>Time Behaviour</td>
-<td>Response and throughput meet requirements</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <!-- PORTABILITY -->
+      <tr>
+        <td rowspan="2">Portability</td>
+        <td>Adaptability</td>
+        <td>
+          degree to which a system can effectively and efficiently be adapted for different or evolving hardware, software or other opetational or usage environments
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
 
-<tr><td>Portability</td><td>Adaptability</td>
-<td>Adaptation to different environments</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Replaceability</td>
+        <td>
+          degree to which a product can be replaced by another specified software product for the same purpose in the same environment
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+        <td></td>
+      </tr>
 
-<tr><td>Portability</td><td>Replaceability</td>
-<td>Replacement by another system</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <!-- RELIABILITY -->
+      <tr>
+        <td rowspan="4">Reliability</td>
+        <td>Availability</td>
+        <td>
+          degree to which a system or component is operational and accessible when required for use
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td>X</td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Reliability</td><td>Availability</td>
-<td>System is operational when required</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Fault tolerance</td>
+        <td>
+          degree to which a system or component operates as intended despite the presence of hardware or software faults
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
 
-<tr><td>Reliability</td><td>Fault Tolerance</td>
-<td>Operation despite faults</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Maturity</td>
+        <td>
+          degree to which a system meets needs for reliability under normal operation
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
 
-<tr><td>Reliability</td><td>Maturity</td>
-<td>Reliability under normal operation</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Recoverability</td>
+        <td>
+          degree to which, in case of an interruption or a failure, a system can recover the data affected and re-establish the desired state of the system
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Reliability</td><td>Recoverability</td>
-<td>Recovery after failure</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <!-- SATISFACTION -->
+      <tr>
+        <td rowspan="2">Satisfaction</td>
+        <td>Trust</td>
+        <td>
+          degree to which a user or other stakeholder has confidence that a product or system will behave as intended
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td>X</td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Security</td><td>Integrity</td>
-<td>Protection against unauthorized modification</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Usefulness</td>
+        <td>
+          degree to which a user is satisfied with their perceived achievement of pragmatic goals, including the results of use and the consequences of use
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td>X</td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Security</td><td>Confidentiality</td>
-<td>Access restricted to authorized users</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <!-- SECURITY -->
+      <tr>
+        <td rowspan="4">Security</td>
+        <td>Accountability</td>
+        <td>
+          degree to which the actions of an entity can be traced uniquely to the entity
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Security</td><td>Authenticity</td>
-<td>Verification of identity</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Authenticity</td>
+        <td>
+          degree to which the identity of a subject or resource can be proved to be the one claimed
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Security</td><td>Accountability</td>
-<td>Traceability of actions</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Confidentiality</td>
+        <td>
+          degree to which a system ensures that data are accessible only to those authorized to have access
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Usability</td><td>Learnability</td>
-<td>Ease of learning system usage</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Integrity</td>
+        <td>
+          degree to which a system or component prevents unauthorized access to, or modification of, computer programs or data
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Usability</td><td>Operability</td>
-<td>Ease of operation and control</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <!-- USABILITY -->
+      <tr>
+        <td rowspan="4">Usability</td>
+        <td>Appropriateness recognizability</td>
+        <td>
+          degree to which users can recognize whether a system is appropriate for their needs, even before it is implemented
+        </td>
+        <td>extended from [ISO/IEC 25010:2011]</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Usability</td><td>User Error Protection</td>
-<td>Protection against user mistakes</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Learnability</td>
+        <td>
+          degree to which a system can be used to achieve specified goals of learning to use the system.
+        </td>
+        <td>simplified from [ISO/IEC 25010:2011]</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Accessibility</td><td>Accessibility</td>
-<td>Usable by diverse users</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <tr>
+        <td>Operability</td>
+        <td>
+          degree to which a system has attributes that make it easy to operate and control
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Robustness</td><td>Robustness</td>
-<td>Behavior under unexpected situations</td>
-<td>S-Cube (2012)</td></tr>
+      <tr>
+        <td>User error protection</td>
+        <td>
+          degree to which a system protects users against making errors
+        </td>
+        <td>[ISO/IEC 25010:2011]</td>
+        <td>X</td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+      </tr>
 
-<tr><td>Survivability</td><td>Survivability</td>
-<td>Continued service under attacks or failures</td>
-<td>ISO/IEC 25010:2011</td></tr>
+      <!-- ACCESSIBILITY -->
+      <tr>
+        <td>Accessibility</td>
+        <td>Accessibility</td>
+        <td>
+          degree to which a system can be used by people with the widest range of characteristics and capabilities
+        </td>
+        <td>simplified from [ISO/IEC 25010:2011]</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>X</td>
+      </tr>
 
-</tbody>
-</table>
+      <!-- ROBUSTNESS -->
+      <tr>
+        <td>Robustness</td>
+        <td>Robustness</td>
+        <td>
+          the degree to which a sytem behaves in an acceptable way in unexpected situations
+        </td>
+        <td>[S-Cube Quality Reference Model (2012)]</td>
+        <td>X</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <!-- SURVIVABILITY -->
+      <tr>
+        <td>Survivability</td>
+        <td>Survivability</td>
+        <td>
+          the degree to which a system continues to fulfil its mission by providing essential services in a timely manner in spite of the presence of attacks
+        </td>
+        <td>mentioned in [ISO/IEC 25010:2011] as "covered by Recoverability"</td>
+        <td>X</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+    </tbody>
+  </table>
 </div>
 
 </div>
